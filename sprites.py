@@ -1,5 +1,6 @@
 import pygame
 import constants
+import random
 
 class Sprite(pygame.sprite.Sprite):
     def __init__(self):
@@ -25,8 +26,16 @@ class Player(Sprite):
         if self.x > constants.SIZE[0]:
             self.x = 0
 
+    def reset(self):
+        self.x = constants.SIZE[0]//2
+        self.y = constants.SIZE[1]-100
+
 class Enemy(Sprite):
     def __init__(self):
         super().__init__()
-
-
+        self.image = pygame.image.load("images/enemyGreen2.png").convert()
+        self.image.set_colorkey(constants.BLACK)
+        self.x = random.randint(0,constants.SIZE[0])
+    #
+    def update(self):
+        self.y=self.y+1
