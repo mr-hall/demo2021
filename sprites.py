@@ -12,6 +12,7 @@ class Sprite(pygame.sprite.Sprite):
 
     def update(self):
         pass
+    #
 
 
 class Player(Sprite):
